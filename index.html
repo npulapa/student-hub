@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:"Poppins",sans-serif;
@@ -53,11 +54,13 @@ font-weight:600;
 box-shadow:0 8px 25px rgba(0,0,0,0.2);
 backdrop-filter:blur(10px);
 transition:all 0.3s ease;
+cursor:pointer;
 }
 
 .year-btn:hover{
 transform:scale(1.1);
 background:rgba(255,255,255,0.3);
+box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .emoji{
@@ -98,6 +101,7 @@ animation:waveMove 10s linear infinite;
 from{transform:translateX(-50%) rotate(0deg);}
 to{transform:translateX(-50%) rotate(360deg);}
 }
+
 </style>
 </head>
 
@@ -111,10 +115,23 @@ to{transform:translateX(-50%) rotate(360deg);}
 <h2>🎉 Select Your Year of Study 🎉</h2>
 
 <div class="year-container">
-<a href="#" class="year-btn" onclick="selectYear(1)">🌱 1st Year</a>
-<a href="#" class="year-btn" onclick="selectYear(2)">📘 2nd Year</a>
-<a href="#" class="year-btn" onclick="selectYear(3)">💡 3rd Year</a>
-<a href="#" class="year-btn" onclick="selectYear(4)">🚀 4th Year</a>
+
+<div class="year-btn" onclick="selectYear(1)">
+🌱 1st Year
+</div>
+
+<div class="year-btn" onclick="selectYear(2)">
+📘 2nd Year
+</div>
+
+<div class="year-btn" onclick="selectYear(3)">
+💡 3rd Year
+</div>
+
+<div class="year-btn" onclick="selectYear(4)">
+🚀 4th Year
+</div>
+
 </div>
 
 <footer>©️ 2025 Student Hub | Made with 💖</footer>
@@ -122,10 +139,12 @@ to{transform:translateX(-50%) rotate(360deg);}
 <div class="wave"></div>
 
 <script>
+
 function selectYear(year){
-localStorage.setItem('year',year);
+localStorage.setItem("year",year);
 window.location.href="https://npulapa.github.io/subjexts-page/";
 }
+
 </script>
 
 </body>
