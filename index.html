@@ -3,149 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Select Year 🎓</title>
-
+<title>Select Subject ✨</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  background: linear-gradient(135deg, #667eea, #764ba2, #89f7fe, #66a6ff);
-  background-size: 300% 300%;
-  animation: gradientShift 10s ease infinite;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body{
+font-family:'Inter',sans-serif;
+margin:0;
+height:100vh;
+overflow-x:hidden;
+background:linear-gradient(120deg,#1e3c72,#2a5298,#6dd5fa);
+background-size:400% 400%;
+animation:gradientFlow 10s ease infinite;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+color:#fff;
+text-align:center;
+position:relative;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes gradientFlow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+h2{
+font-size:2.2rem;
+margin-top:60px;
+text-shadow:0 3px 8px rgba(0,0,0,0.3);
+letter-spacing:1px;
 }
 
-.year-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
+.subject{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(8px);
+border-radius:20px;
+padding:20px 30px;
+margin:15px auto;
+width:320px;
+color:#fff;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+transition:all 0.3s ease;
+cursor:pointer;
 }
 
-.year-btn {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  padding: 20px 40px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+.subject:hover{
+transform:translateY(-5px) scale(1.05);
+background:rgba(255,255,255,0.25);
 }
 
-.year-btn:hover {
-  transform: scale(1.1);
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+.subject strong{
+display:block;
+font-size:1.3rem;
 }
 
-.emoji {
-  font-size: 26px;
-  margin-right: 10px;
+.subject small{
+font-size:0.9rem;
+opacity:0.9;
 }
 
-footer {
-  margin-top: 60px;
-  font-size: 14px;
-  color: rgba(255,255,255,0.8);
+.quiz{
+margin-top:25px;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+border-radius:25px;
+padding:20px 30px;
+width:320px;
+color:#fff;
+font-weight:600;
+box-shadow:0 0 20px rgba(0,183,255,0.6);
+cursor:pointer;
+transition:0.3s ease;
 }
 
-.float {
-  position: absolute;
-  opacity: 0.4;
-  animation: float 6s ease-in-out infinite;
+.quiz:hover{
+transform:scale(1.08);
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+.particle{
+position:absolute;
+width:6px;
+height:6px;
+background:rgba(255,255,255,0.5);
+border-radius:50%;
+animation:floatUp 8s linear infinite;
 }
 
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%;
-  height: 200px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 100%;
-  filter: blur(50px);
-  animation: waveMove 10s linear infinite;
+@keyframes floatUp{
+0%{transform:translateY(100vh) scale(0.5);opacity:0;}
+30%{opacity:1;}
+100%{transform:translateY(-10vh) scale(1.2);opacity:0;}
 }
 
-@keyframes waveMove {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to { transform: translateX(-50%) rotate(360deg); }
+footer{
+position:absolute;
+bottom:15px;
+font-size:14px;
+color:rgba(255,255,255,0.8);
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="float" style="top:10%; left:15%;">📚</div>
-<div class="float" style="top:25%; right:10%;">🎓</div>
-<div class="float" style="bottom:15%; left:10%;">💡</div>
-<div class="float" style="bottom:20%; right:20%;">🚀</div>
+<h2 id="yearTitle">🎓 Select Your Subject</h2>
 
-<h2>🎉 Select Your Year of Study 🎉</h2>
+<div id="subjectList"></div>
 
-<div class="year-container">
-
-<a href="#" class="year-btn" onclick="selectYear(1)">
-<span class="emoji">🌱</span>1st Year
-</a>
-
-<a href="#" class="year-btn" onclick="selectYear(2)">
-<span class="emoji">📘</span>2nd Year
-</a>
-
-<a href="#" class="year-btn" onclick="selectYear(3)">
-<span class="emoji">💡</span>3rd Year
-</a>
-
-<a href="#" class="year-btn" onclick="selectYear(4)">
-<span class="emoji">🚀</span>4th Year
-</a>
-
+<!-- QUIZ BUTTON -->
+<div class="quiz" onclick="window.location.href='https://npulapa.github.io/quiz-app/'">
+🧠 Take a Quiz
 </div>
 
-<footer>© 2025 Student Hub | Made with 💖</footer>
-
-<div class="wave"></div>
+<footer>©️ 2025 Student Resource Hub</footer>
 
 <script>
-function selectYear(year) {
 
-  // Save selected year
-  localStorage.setItem("year", year);
+const subjectsByYear = {
 
-  // Open next page
-  window.location.href = "https://npulapa.github.io/subjexts-page/";
+1:[
+{name:"LINEAR ALGEBRA AND DIFFERENTIAL EQUATIONS",code:"2400BS01"},
+{name:"PROGRAMMING FOR PROBLEM SOLVING",code:"2405ES01"},
+{name:"BASIC ELECTRICAL & ELECTRONICS ENGINEERING",code:"2402ES01"},
+{name:"APPLIED PHYSICS",code:"2400BS05"}
+],
 
+2:[
+{name:"DATABASE MANAGEMENT SYSTEMS",code:"2405PC08"},
+{name:"OBJECT ORIENTED PROGRAMMING THROUGH JAVA",code:"2405PC04"},
+{name:"OPERATING SYSTEMS",code:"2405PC02"}
+],
+
+3:[
+{name:"Database Systems",code:"CSE301"},
+{name:"Operating Systems",code:"CSE302"},
+{name:"Computer Networks",code:"CSE303"}
+],
+
+4:[
+{name:"AI & ML",code:"CSE401"},
+{name:"Cloud Computing",code:"CSE402"},
+{name:"Cyber Security",code:"CSE403"}
+]
+
+};
+
+const year = localStorage.getItem('year') || 1;
+
+document.getElementById('yearTitle').innerText = `📘 Subjects for Year ${year}`;
+
+const list = document.getElementById('subjectList');
+
+subjectsByYear[year].forEach(sub=>{
+
+const div=document.createElement('div');
+div.className='subject';
+
+div.innerHTML=`<strong>${sub.name}</strong><small>Code: ${sub.code}</small>`;
+
+div.onclick=()=>{
+localStorage.setItem('subject',sub.name);
+window.location.href="https://npulapa.github.io/materials-site/";
+};
+
+list.appendChild(div);
+
+});
+
+function createParticles(){
+for(let i=0;i<25;i++){
+const p=document.createElement('div');
+p.classList.add('particle');
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=6+Math.random()*5+"s";
+document.body.appendChild(p);
 }
+}
+
+createParticles();
+
 </script>
 
 </body>
