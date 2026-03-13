@@ -1,136 +1,151 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Select Year 🎓</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea, #764ba2, #89f7fe, #66a6ff);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+}
 
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
-    background: linear-gradient(135deg, #667eea, #764ba2, #89f7fe, #66a6ff);
-    background-size: 300% 300%;
-    animation: gradientShift 10s ease infinite;
-  }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
 
-  h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
-  }
+.year-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
 
-  .year-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-  }
+.year-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
 
-  .year-btn {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    padding: 20px 40px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
+.year-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
 
-  .year-btn:hover {
-    transform: scale(1.1);
-    background: rgba(255,255,255,0.3);
-    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
-  }
+.emoji {
+  font-size: 26px;
+  margin-right: 10px;
+}
 
-  .emoji {
-    font-size: 26px;
-    margin-right: 10px;
-  }
+footer {
+  margin-top: 60px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
 
-  footer {
-    margin-top: 60px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  }
+.float {
+  position: absolute;
+  opacity: 0.4;
+  animation: float 6s ease-in-out infinite;
+}
 
-  /* Floating animation for emojis */
-  .float {
-    position: absolute;
-    opacity: 0.4;
-    animation: float 6s ease-in-out infinite;
-  }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 100%;
+  filter: blur(50px);
+  animation: waveMove 10s linear infinite;
+}
 
-  /* Glowing wave overlay */
-  .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 200px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 100%;
-    filter: blur(50px);
-    animation: waveMove 10s linear infinite;
-  }
-
-  @keyframes waveMove {
-    from { transform: translateX(-50%) rotate(0deg); }
-    to { transform: translateX(-50%) rotate(360deg); }
-  }
+@keyframes waveMove {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
 </style>
+
 </head>
+
 <body>
 
-  <!-- Floating Emojis -->
-  <div class="float" style="top:10%; left:15%;">📚</div>
-  <div class="float" style="top:25%; right:10%;">🎓</div>
-  <div class="float" style="bottom:15%; left:10%;">💡</div>
-  <div class="float" style="bottom:20%; right:20%;">🚀</div>
+<div class="float" style="top:10%; left:15%;">📚</div>
+<div class="float" style="top:25%; right:10%;">🎓</div>
+<div class="float" style="bottom:15%; left:10%;">💡</div>
+<div class="float" style="bottom:20%; right:20%;">🚀</div>
 
-  <h2>🎉 Select Your Year of Study 🎉</h2>
+<h2>🎉 Select Your Year of Study 🎉</h2>
 
-  <div class="year-container">
-    <a href="#" class="year-btn" onclick="selectYear(1)"><span class="emoji">🌱</span>1st Year</a>
-    <a href="#" class="year-btn" onclick="selectYear(2)"><span class="emoji">📘</span>2nd Year</a>
-    <a href="#" class="year-btn" onclick="selectYear(3)"><span class="emoji">💡</span>3rd Year</a>
-    <a href="#" class="year-btn" onclick="selectYear(4)"><span class="emoji">🚀</span>4th Year</a>
-  </div>
+<div class="year-container">
 
-  <footer>©️ 2025 Student Hub | Made with 💖</footer>
+<a href="#" class="year-btn" onclick="selectYear(1)">
+<span class="emoji">🌱</span>1st Year
+</a>
 
-  <div class="wave"></div>
+<a href="#" class="year-btn" onclick="selectYear(2)">
+<span class="emoji">📘</span>2nd Year
+</a>
+
+<a href="#" class="year-btn" onclick="selectYear(3)">
+<span class="emoji">💡</span>3rd Year
+</a>
+
+<a href="#" class="year-btn" onclick="selectYear(4)">
+<span class="emoji">🚀</span>4th Year
+</a>
+
+</div>
+
+<footer>© 2025 Student Hub | Made with 💖</footer>
+
+<div class="wave"></div>
 
 <script>
 function selectYear(year) {
-  localStorage.setItem('year', year);
-  window.location.href = "subjects.html";
+
+  // store selected year
+  localStorage.setItem("year", year);
+
+  // open subjects website
+  window.location.href = "https://npulapa.github.io/subjexts-page/";
+
 }
 </script>
 
