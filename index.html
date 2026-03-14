@@ -17,23 +17,14 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 overflow:hidden;
-color:#fff;
+color:#333;
 text-align:center;
-background:linear-gradient(135deg,#667eea,#764ba2,#89f7fe,#66a6ff);
-background-size:300% 300%;
-animation:gradientShift 10s ease infinite;
-}
-
-@keyframes gradientShift{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+background:#f2f2f2; /* simple background */
 }
 
 h2{
 font-size:2.5rem;
 margin-bottom:40px;
-text-shadow:0 3px 10px rgba(0,0,0,0.3);
 }
 
 .year-container{
@@ -44,23 +35,21 @@ gap:25px;
 }
 
 .year-btn{
-background:rgba(255,255,255,0.15);
-color:#fff;
+background:#ffffff;
+color:#333;
 padding:20px 40px;
 border-radius:20px;
 text-decoration:none;
 font-size:1.2rem;
 font-weight:600;
-box-shadow:0 8px 25px rgba(0,0,0,0.2);
-backdrop-filter:blur(10px);
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
 transition:all 0.3s ease;
 cursor:pointer;
 }
 
 .year-btn:hover{
 transform:scale(1.1);
-background:rgba(255,255,255,0.3);
-box-shadow:0 10px 35px rgba(0,0,0,0.4);
+box-shadow:0 10px 35px rgba(0,0,0,0.3);
 }
 
 .emoji{
@@ -71,7 +60,7 @@ margin-right:10px;
 footer{
 margin-top:60px;
 font-size:14px;
-color:rgba(255,255,255,0.8);
+color:#555;
 }
 
 .float{
@@ -86,20 +75,7 @@ animation:float 6s ease-in-out infinite;
 }
 
 .wave{
-position:absolute;
-bottom:0;
-left:0;
-width:200%;
-height:200px;
-background:rgba(255,255,255,0.2);
-border-radius:100%;
-filter:blur(50px);
-animation:waveMove 10s linear infinite;
-}
-
-@keyframes waveMove{
-from{transform:translateX(-50%) rotate(0deg);}
-to{transform:translateX(-50%) rotate(360deg);}
+display:none; /* wave removed */
 }
 
 </style>
@@ -135,8 +111,6 @@ to{transform:translateX(-50%) rotate(360deg);}
 </div>
 
 <footer>©️ 2025 Student Hub | Made with 💖</footer>
-
-<div class="wave"></div>
 
 <script>
 
